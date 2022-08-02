@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-color: #576CA8;
+  padding: 10px;
+  border-radius: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.inp-container {
+  width: 100%;
+}
+.input-1 {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.input-1::placeholder{
+  color: black;
+}
+.backgrounds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.background-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:3px;
+  height: 110px;
+  width: 50%;
+}
+.img-option {
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.start-timer {
+  margin-left: 40%;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background-color: white;
+  border: none;
+  padding: 5px;
+  color: #576CA8;
+  cursor: pointer;
+}
+.landing-background {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.landing-card {
+  background-color: rgba(0, 0, 0, 0.308);
+  width: 30vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+}
+.wheat{
+  color: wheat;
+}
+.landing-page button {
+  width: fit-content;
+  padding: 10px;
+  height: fit-content;
+  background-color:#FE4A08 ;
+  border: none;
+  color: white;
+}
+.date-time{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
+}
+.date-time p {
+  color: wheat;
+}
+.date-time-val {
+  text-align: center;
+  border: 3px solid white; 
+  width: 70px;
+  border-radius: 10px;
 }
