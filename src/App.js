@@ -4,7 +4,6 @@ import './App.css';
 import Card from './components/Card';
 import LandingPage from './components/LandingPage';
 let intervalID
-let intervalID
 function App() {
   let imgs = ["../../ad1.avif","../../ad2.avif"]
   let [img,setImg] = useState(null)
