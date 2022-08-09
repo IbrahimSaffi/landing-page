@@ -30,7 +30,9 @@ function Card(props){
                 </div>
                 <div className="inp-container">
                 <h3>When will the promo end?</h3>
-                 <input ref={date} className="input-1" type="datetime-local"  defaultValue="2022-01-01T00:00" />
+                <input ref={date} className="input-1" 
+                 min={props.date}
+                   type="datetime-local" defaultValue={props.date} />
                 </div>
                 <div className="backgrounds">
                     {props.imgs.map((ele,i)=>{
@@ -53,12 +55,17 @@ function Card(props){
                         buttonText:buttonText.current.value,
                         date:date.current.value,
                     }
-                if(Object.values(dataObj).every(val=>val!="")){
-                    if(props.img!==null){
-                        props.makePage(dataObj)
-                       navigate("/landing-page")
+                    if(date.current.value)
+                    if(Object.values(dataObj).every(val=>val!=="")){
+                        if(props.img!==null){
+                           let selectedDate =  Number(dataObj.date.match(/\d*/g).join(""))
+                           let currDate = Number(props.date.match(/\d*/g).join(""))
+                           if(currDate<selectedDate){
+                               props.makePage(dataObj)
+                               navigate("/landing-page")
+                           }
+                        }
                     }
-                }
                 }} className="start-timer">Start Timer</button>
         </div>
     )

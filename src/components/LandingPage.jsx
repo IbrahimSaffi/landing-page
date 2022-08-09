@@ -3,48 +3,21 @@ import React from 'react'
 export default function LandingPage(props) {
     let endDate = props.obj.date.split("T")[0].split("-")
     let endTime = props.obj.date.split("T")[1].split(":")
-    let currDate = props.date.split("/")
-    let currTime = props.time.split(":")
-    let days = (endDate[0]-currDate[2])*365+(endDate[1]-currDate[0])*30+(endDate[2]-currDate[1])
+    let currDate = props.date.split("T")[0].split("-")
+    let currTime = props.date.split("T")[1].split(":")
     let currHours = currTime[0]
-    if(days<10){
-        days = `0${days}`
-    }
-    if(currTime[2].endsWith("PM")){
-        currHours+=12
-    }
-    let hours = endTime[0]-currHours
-    if(hours<0){
-        hours+=24
-    }
-    if(hours<10){
-        hours = `0${hours}`
-    }
-    let minutes = endTime[1]-currTime[1]
-    if(minutes<0){
-        minutes+=60
-    }
-    if(minutes<10){
-        minutes = `0${minutes}`
-    }
-    let seconds = 60 - currTime[2].split(" ")[0]
-    if(seconds<10){
-        seconds = `0${seconds}`
-    }
-    days = days-1
-    hours=hours-1
-    minutes = minutes-1
-    if(hours<0){
-        hours =0
-    }
-    if(days<0){
-        days =0
-    }
-    // if(minutes<0){
-      minutes=0
-    // }
-    if(days===0&&hours===0&&minutes===0&&seconds=="01"){
-        console.log("here")
+    let minutesDifference = endTime[1]-currTime[1]
+    let currSeconds =new Date().toLocaleTimeString().split(":")
+    currSeconds = currSeconds[currSeconds.length-1].split(" ")[0]
+    let hoursDifference = endTime[0]-currHours
+    let difference = ((((((endDate[0]-currDate[0])*365+(endDate[1]-currDate[1])*30+(endDate[2]-currDate[2]))*24 + hoursDifference)*60)+ minutesDifference)*60)+(60-currSeconds)
+    let seconds = difference%60
+    let totalMinutesLeft = (difference-(difference%60))/60
+    let minutes = totalMinutesLeft%60
+    let totalHoursLeft = (totalMinutesLeft -(totalMinutesLeft%60))/60
+    let hours = totalHoursLeft%24
+    let days = (totalHoursLeft-(totalHoursLeft%24))/24
+    if(difference<=0){
         props.stopTimer()
     }
     
