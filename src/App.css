@@ -97,7 +97,7 @@
 }
 .landing-card {
   background-color: rgba(0, 0, 0, 0.308);
-  width: 30vw;
+  min-width: 30vw;
   height: fit-content;
   display: flex;
   flex-direction: column;

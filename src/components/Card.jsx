@@ -8,6 +8,7 @@ function Card(props){
     let buttonText = useRef(null);
     let date = useRef(null);
     let navigate = useNavigate()
+
     return (
         <div className="card">
             <h1>Build Your Landing page</h1>

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+let flag = "counter-running"
 export default function LandingPage(props) {
     let endDate = props.obj.date.split("T")[0].split("-")
     let endTime = props.obj.date.split("T")[1].split(":")
@@ -42,7 +43,7 @@ export default function LandingPage(props) {
         <p>Minutes</p>
         </div>
         <div className='date-time-container' >
-        <h1 className='date-time-val'>{seconds}</h1>
+        <h1 className='date-time-val'>{props.res===""?seconds:0}</h1>
         <p>Seconds</p>
         </div>
      </div>
