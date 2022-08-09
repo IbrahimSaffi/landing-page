@@ -11,7 +11,7 @@ export default function LandingPage(props) {
     let currSeconds =new Date().toLocaleTimeString().split(":")
     currSeconds = currSeconds[currSeconds.length-1].split(" ")[0]
     let hoursDifference = endTime[0]-currHours
-    let difference = ((((((endDate[0]-currDate[0])*365+(endDate[1]-currDate[1])*30+(endDate[2]-currDate[2]))*24 + hoursDifference)*60)+ minutesDifference)*60)+(60-currSeconds)
+    let difference = ((((((endDate[0]-currDate[0])*365+(endDate[1]-currDate[1])*30+(endDate[2]-currDate[2]))*24 + hoursDifference)*60)+ minutesDifference)*60)-currSeconds
     let seconds = difference%60
     let totalMinutesLeft = (difference-(difference%60))/60
     let minutes = totalMinutesLeft%60
