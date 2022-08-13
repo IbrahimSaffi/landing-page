@@ -8,7 +8,6 @@ function Card(props){
     let buttonText = useRef(null);
     let date = useRef(null);
     let navigate = useNavigate()
-
     return (
         <div className="card">
             <h1>Build Your Landing page</h1>
@@ -38,12 +37,12 @@ function Card(props){
                 <div className="backgrounds">
                     {props.imgs.map((ele,i)=>{
                   return <div className="background-option">
-                      <input  type="radio" name="option" onChange={(e)=>{
+                      <input checked={props.imgs[i]===props.img} type="radio" name="option" onChange={(e)=>{
                         if(e.target.checked){
                             props.selectedImg(i)      
                         }
                       }} />
-                      <img className="img-option" src={ele} alt="" />
+                      <img onClick={()=>props.selectedImg(i)} className="img-option" src={ele} alt="" />
                   </div>
                     })}
                     </div>    
